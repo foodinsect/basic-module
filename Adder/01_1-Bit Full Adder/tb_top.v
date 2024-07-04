@@ -3,15 +3,19 @@
 module tb_top();
 // Define the signals to be tested. They need to be of type reg to assign values.
 reg x, y, c_in;
-wire sum, c_out;
+wire sum_st, sum_df, sum_bh, c_out_st, c_out_df, c_out_bh;
 
 // Create an instance of the 'top' module. Connect the inputs and outputs within the testbench.
 top uut (
     .x(x), 
     .y(y), 
     .c_in(c_in), 
-    .sum(sum), 
-    .c_out(c_out)
+    .sum_st(sum_st), 
+    .sum_df(sum_df), 
+    .sum_bh(sum_bh), 
+    .c_out_st(c_out_st),
+    .c_out_df(c_out_df),
+    .c_out_bh(c_out_bh)
 );
 
 // The initial block sets the initial values of the variables and defines the input sequence for simulation.

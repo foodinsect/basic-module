@@ -1,6 +1,6 @@
 module full_adder(
-    input wire x,y,cin,
-    output wire s, cout
+    input   wire x, y, cin,
+    output  wire s, cout
 );
     wire s1, c1, c2;
 

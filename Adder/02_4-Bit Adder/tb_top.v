@@ -3,16 +3,24 @@
 module tb_top;
     reg [3:0] x,y; 
     reg c_in; 
-    wire [3:0] sum; 
-    wire c_out;
+    wire [3:0] sum_st; 
+    wire [3:0] sum_df; 
+    wire [3:0] sum_bh; 
+    wire c_out_st;
+    wire c_out_df;
+    wire c_out_bh;
     
     // Unit Under Test port map
     top UUT (
     .x(x), 
     .y(y), 
     .c_in(c_in), 
-    .sum(sum), 
-    .c_out(c_out)
+    .sum_st(sum_st), 
+    .sum_df(sum_df), 
+    .sum_bh(sum_bh), 
+    .c_out_st(c_out_st),
+    .c_out_df(c_out_df),
+    .c_out_bh(c_out_bh)
     ); 
     
     reg [7:0] i;

@@ -1,88 +1,87 @@
-# 1비트 가산기와 n비트 가산기
-> velog Link : [Click](https://velog.io/@foodinsect/adder)
-## 목차
-1. [1비트 가산기](#1비트-가산기)
-   - [반가산기 (Half Adder)](#반가산기-half-adder)
-     - [반가산기 진리표](#반가산기-진리표)
-   - [전가산기 (Full Adder)](#전가산기-full-adder)
-     - [전가산기 진리표](#전가산기-진리표)
-2. [n비트 가산기](#n비트-가산기)
-   - [리플 캐리 가산기 (Ripple Carry Adder)](#리플-캐리-가산기-ripple-carry-adder)
-   - [n비트 전가산기 (n bit Full Adder)](#n비트-전가산기-n-bit-full-adder)
+# 1-bit Adder and n-bit Adder
+> 한글 설명  --> velog Link: [Click](https://velog.io/@foodinsect/adder)
+
+## Table of Contents
+1. [1-bit Adder](#1-bit-adder)
+   - [Half Adder](#half-adder)
+     - [Half Adder Truth Table](#half-adder-truth-table)
+   - [Full Adder](#full-adder)
+     - [Full Adder Truth Table](#full-adder-truth-table)
+2. [n-bit Adder](#n-bit-adder)
+   - [Ripple Carry Adder](#ripple-carry-adder)
+   - [n-bit Full Adder](#n-bit-full-adder)
    - [ALU (Arithmetic Logic Unit)](#alu-arithmetic-logic-unit)
-   
+
 ---
 
-## 1비트 가산기
+## 1-bit Adder
 
-### 반가산기 (Half Adder)
+### Half Adder
 ![half adder](https://velog.velcdn.com/images/foodinsect/post/2695900b-42cb-4704-87e4-12f9843b4309/image.jpg)
 
 ![half adder RTL Analysis](https://velog.velcdn.com/images/foodinsect/post/865bca7e-d8d5-4aae-a5d4-cae24febd1e3/image.png)
 
-반가산기는 두 개의 1비트 이진수를 더함. 합(Sum)과 자리올림(Carry)을 생성함.
-- 합(Sum): 입력 A와 B의 XOR 결과
-- 자리올림(Carry): 입력 A와 B의 AND 결과
+A half adder adds two 1-bit binary numbers, generating a sum and a carry.
+- **Sum**: XOR result of inputs A and B
+- **Carry**: AND result of inputs A and B
 
-#### 반가산기 진리표
+#### Half Adder Truth Table
 
-| 입력 A | 입력 B | 합 (Sum) | 자리올림 (Carry) |
-| ------ | ------ | -------- | ---------------- |
-|   0    |   0    |    0     |        0         |
-|   0    |   1    |    1     |        0         |
-|   1    |   0    |    1     |        0         |
-|   1    |   1    |    0     |        1         |
+| Input A | Input B | Sum | Carry |
+| ------- | ------- | --- | ----- |
+|    0    |    0    |  0  |   0   |
+|    0    |    1    |  1  |   0   |
+|    1    |    0    |  1  |   0   |
+|    1    |    1    |  0  |   1   |
 
 ![half adder waveform](https://velog.velcdn.com/images/foodinsect/post/965dcf62-8a70-4fa8-a106-06cffa1219f4/image.png)
 
 ---
 
-### 전가산기 (Full Adder)
+### Full Adder
 ![full adder](https://velog.velcdn.com/images/foodinsect/post/46be0f9b-b25f-4dca-93c1-4f9e0cace8ad/image.jpg)
 
 ![full adder_structure](https://velog.velcdn.com/images/foodinsect/post/61071685-16af-4092-9333-64cf7555a62f/image.jpg)
 
 ![full adder RTL Analysis](https://velog.velcdn.com/images/foodinsect/post/8aa19bda-e60a-4cca-b2bb-26f08de36ea3/image.png)
 
-전가산기는 세 개의 1비트 이진수를 더함. 반가산기 두 개와 OR 게이트로 구성됨.
-- 첫 번째 반가산기: 입력 A와 B를 더하여 중간 합과 중간 자리올림을 생성
-- 두 번째 반가산기: 첫 번째 반가산기의 합과 자리올림 입력을 더하여 최종 합과 최종 자리올림을 생성
-- 최종 자리올림: 두 반가산기의 자리올림을 OR 게이트로 결합하여 생성
+A full adder adds three 1-bit binary numbers. It is constructed using two half adders and an OR gate.
+- **First Half Adder**: Adds inputs A and B, generating intermediate sum and carry.
+- **Second Half Adder**: Adds intermediate sum and carry-in input, generating the final sum and carry.
+- **Final Carry**: OR gate combines the carries from both half adders.
 
-#### 전가산기 진리표
+#### Full Adder Truth Table
 
-| 입력 A | 입력 B | 자리올림 입력 (Carry-in) | 합 (Sum) | 자리올림 (Carry-out) |
-| ------ | ------ | ------------------------ | -------- | -------------------- |
-|   0    |   0    |            0             |    0     |          0           |
-|   0    |   0    |            1             |    1     |          0           |
-|   0    |   1    |            0             |    1     |          0           |
-|   0    |   1    |            1             |    0     |          1           |
-|   1    |   0    |            0             |    1     |          0           |
-|   1    |   0    |            1             |    0     |          1           |
-|   1    |   1    |            0             |    0     |          1           |
-|   1    |   1    |            1             |    1     |          1           |
+| Input A | Input B | Carry-in | Sum | Carry-out |
+| ------- | ------- | -------- | --- | --------- |
+|    0    |    0    |    0     |  0  |     0     |
+|    0    |    0    |    1     |  1  |     0     |
+|    0    |    1    |    0     |  1  |     0     |
+|    0    |    1    |    1     |  0  |     1     |
+|    1    |    0    |    0     |  1  |     0     |
+|    1    |    0    |    1     |  0  |     1     |
+|    1    |    1    |    0     |  0  |     1     |
+|    1    |    1    |    1     |  1  |     1     |
 
 ![1-bit full adder waveform](https://velog.velcdn.com/images/foodinsect/post/8496b596-13c0-4fae-9c3d-aaf592209629/image.png)
 
 ---
 
-## n비트 가산기
+## n-bit Adder
 
-### 리플 캐리 가산기 (Ripple Carry Adder)
+### Ripple Carry Adder
 ![4bit ripple carry adder](https://velog.velcdn.com/images/foodinsect/post/87b4a655-9b27-4eab-9832-de45f441fdcb/image.jpg)
 
 ![4bit ripple carry adder RTL analysis](https://velog.velcdn.com/images/foodinsect/post/10ef205a-458f-4bf4-a1f0-6c1e3f2fce98/image.png)
 
-리플 캐리 가산기는 여러 개의 전가산기를 직렬로 연결하여 n비트 덧셈을 수행함.
-각 전가산기의 자리올림 출력이 다음 전가산기의 자리올림 입력으로 전달되어 최종 덧셈 결과를 얻음.
-속도는 느리지만 구현이 간단함.
+A ripple carry adder performs n-bit addition by connecting multiple full adders in series. The carry-out from each full adder is passed to the next full adder's carry-in. This structure is simple but slow due to the ripple effect.
 
 ![4bit ripple carry adder waveform](https://velog.velcdn.com/images/foodinsect/post/adb3a204-2316-4312-8f46-ff6af16cf1d9/image.png)
 
 ---
 
-### n비트 전가산기 (n bit Full Adder)
-n비트 가산기를 generate문과 parameter를 이용하여 구현함. parameter를 4로 설정했을 때 4bit adder가 구현되는 모습.
+### n-bit Full Adder
+An n-bit adder can be implemented using the `generate` statement and parameters. When the parameter is set to 4, it creates a 4-bit adder.
 
 ![nbit adder RTL Analysis](https://velog.velcdn.com/images/foodinsect/post/11d4f76e-4467-4bfe-ad44-aee736c176be/image.png)
 
@@ -90,5 +89,34 @@ n비트 가산기를 generate문과 parameter를 이용하여 구현함. paramet
 
 ---
 
-### ALU (Arithmetic Logic Unit)
-ALU는 산술 및 논리 연산을 수행하는 컴퓨터의 핵심 장치임. 덧셈, 뺄셈, 곱셈 등의 산술 연산과 AND, OR, XOR 등의 논리 연산을 수행함.
+## ALU (Arithmetic Logic Unit)
+An ALU is a core component of a computer that performs arithmetic and logical operations such as addition, subtraction, multiplication, and logical AND, OR, and XOR operations.
+
+![ALU waveform](https://velog.velcdn.com/images/foodinsect/post/65a9439c-a91c-4576-ae6d-08b813cd70aa/image.png)
+
+### Example: 4-bit ALU
+1. Addition
+2. Subtraction
+3. AND
+4. OR
+5. XOR
+6. NOT
+7. Left Shift
+8. Right Shift
+
+### Explanation
+- **Inputs and Outputs**:
+    - `a` and `b` are the 4-bit input operands.
+    - `op_code` is a 3-bit input used to select the operation.
+    - `result` is the 4-bit output of the ALU.
+    - `carry_out` is an output for the carry bit in addition and subtraction operations.
+
+- **Operations**:
+    - `3'b000`: Addition
+    - `3'b001`: Subtraction
+    - `3'b010`: AND
+    - `3'b011`: OR
+    - `3'b100`: XOR
+    - `3'b101`: NOT (only `a` is negated)
+    - `3'b110`: Left Shift
+    - `3'b111`: Right Shift

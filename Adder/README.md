@@ -2,7 +2,7 @@
 
 # Verilog Modules Collection
 
-This repository contains the Verilog implementations of various adders and an ALU (Arithmetic Logic Unit). Each module is provided with a detailed description, truth tables, and waveforms. The modules include a 1-bit half adder, 1-bit full adder, n-bit ripple carry adder, carry lookahead adder, and the 74181 4-bit ALU.
+This repository contains the Verilog implementations of various adders. Each module is provided with a detailed description, truth tables, and waveforms. The modules include a 1-bit half adder, 1-bit full adder, n-bit ripple carry adder, carry lookahead adder.
 
 ## Table of Contents
 1. [1-bit Adder](#1-bit-adder)
@@ -14,8 +14,6 @@ This repository contains the Verilog implementations of various adders and an AL
    - [Ripple Carry Adder](#ripple-carry-adder)
    - [n-bit Full Adder](#n-bit-full-adder)
 3. [Carry Lookahead Adder](#carry-lookahead-adder)
-3. [ALU (Arithmetic Logic Unit)](#alu-arithmetic-logic-unit)
-   - [ALU 74181](#alu-74181)
 
 ---
 
@@ -172,98 +170,3 @@ An n-bit adder can be implemented using the `generate` statement and parameters.
 Based on this, a Carry Lookahead Adder calculates the sum and final carry for each bit, improving addition speed.
 
 ---
-
-## ALU (Arithmetic Logic Unit)
-An ALU is a core component of a computer that performs arithmetic and logical operations such as addition, subtraction, multiplication, and logical AND, OR, and XOR operations.
-
-### Example: 4-bit ALU
-**Operations**
-1. Addition
-2. Subtraction
-3. AND
-4. OR
-5. XOR
-6. NOT
-7. Left Shift
-8. Right Shift
-
-#### Explanation
-- **Inputs and Outputs**:
-    - `a` and `b` are the 4-bit input operands.
-    - `op_code` is a 3-bit input used to select the operation.
-    - `result` is the 4-bit output of the ALU.
-    - `carry_out` is an output for the carry bit in addition and subtraction operations.
-
-- **Operations**:
-   
-
- - `3'b000`: Addition
-    - `3'b001`: Subtraction
-    - `3'b010`: AND
-    - `3'b011`: OR
-    - `3'b100`: XOR
-    - `3'b101`: NOT (only `a` is negated)
-    - `3'b110`: Left Shift
-    - `3'b111`: Right Shift
-
-![ALU waveform](https://velog.velcdn.com/images/foodinsect/post/65a9439c-a91c-4576-ae6d-08b813cd70aa/image.png)
-
----
-
-## ALU 74181
-
-### ALU 74181 Combinational Circuit
-![ALU 74181 Comb Circuit](https://velog.velcdn.com/images/foodinsect/post/530b6b0d-8762-4d80-b5bb-25ac2bcdf04c/image.png)
-
-### ALU 74181 Datasheet
-
-#### Active High Inputs & Outputs ($M = 1$, $C_n = 1$)
-
-| S3 | S2 | S1 | S0 | Logic ($M = 1$)       | Arithmetic ($M = 0$, $C_n = 1$)  |
-|----|----|----|----|---------------------|------------------------------|
-| 0  | 0  | 0  | 0  | $$\overline{A}$$    | $A$                            |
-| 0  | 0  | 0  | 1  | $$\overline{A+B}$$  | $A + B$                        |
-| 0  | 0  | 1  | 0  | $$\overline{A}B$$   | $A + \overline{B}$         |
-| 0  | 0  | 1  | 1  | Logical $0$           | minus $1$                      |
-| 0  | 1  | 0  | 0  | $$\overline{A}\overline{B}$$ | $A$ plus $$A\overline{B}$$ |
-| 0  | 1  | 0  | 1  | $$\overline{B}$$    | $(A + B)$ plus $$A\overline{B}$$ |
-| 0  | 1  | 1  | 0  | $$A\oplus B$$       | $A$ minus $B$ minus $1$            |
-| 0  | 1  | 1  | 1  | $$A\overline{B}$$             | $AB$ minus $1$                   |
-| 1  | 0  | 0  | 0  | $$\overline{A}+B$$  | $A$ plus $$AB$$     |
-| 1  | 0  | 0  | 1  | $$\overline{A\oplus B}$$ | $A$ plus $B$                |
-| 1  | 0  | 1  | 0  | $B$                   | $(A + \overline{B})$ plus $$AB$$ |
-| 1  | 0  | 1  | 1  | $AB$                  | $AB$ minus $1$                   |
-| 1  | 1  | 0  | 0  | Logical $1$           | $A$ plus $A*$                    |
-| 1  | 1  | 0  | 1  | $$A + \overline{B}$$ | $(A + B)$ plus $A$              |
-| 1  | 1  | 1  | 0  | $$A + B$$               | $(A + \overline{B})$ plus $A$ |
-| 1  | 1  | 1  | 1  | $A$                   | $A$ minus $1$                    |
-
-#### Active Low Inputs & Outputs ($M = 1$, $C_n = 0$)
-
-| S3 | S2 | S1 | S0 | Logic ($M = 1$)       | Arithmetic ($M = 0$, $C_n = 0$)  |
-|----|----|----|----|---------------------|------------------------------|
-| 0  | 0  | 0  | 0  | $$\overline{A}$$    | $A$ minus $1$                    |
-| 0  | 0  | 0  | 1  | $$\overline{A}\overline{B}$$ | $AB$ minus $1$          |
-| 0  | 0  | 1  | 0  | $$\overline{A}+B$$  | $$A\overline{B}$$ minus $1$    |
-| 0  | 0  | 1  | 1  | Logical $1$           | minus $1$                      |
-| 0  | 1  | 0  | 0  | $$\overline{A+B}$$  | $A$ plus $(A + \overline{B})$ |
-| 0  | 1  | 0  | 1  | $$\overline{B}$$    | $AB$ plus $(A + \overline{B})$ |
-| 0  | 1  | 1  | 0  | $$\overline{A\oplus B}$$ | $A$ minus $B$ minus $1$       |
-| 0  | 1  | 1  | 1  | $A$ + $$\overline{B}$$ | $A + \overline{B}$        |
-| 1  | 0  | 0  | 0  | $$\overline{A}B$$   | $A$ plus $(A + B)$               |
-| 1  | 0  | 0  | 1  | $$\overline{A\oplus B}$$ | $A$ plus $B$                |
-| 1  | 0  | 1  | 0  | $B$                   | $$A\overline{B} (A + B)$$             |
-| 1  | 0  | 1  | 1  | $A + B$               | $A + B$                        |
-| 1  | 1  | 0  | 0  | Logical $0$           | $A$ plus $A*$                    |
-| 1  | 1  | 0  | 1  | $$A\overline{B}$$             | $AB$ plus $A$                    |
-| 1  | 1  | 1  | 0  | $AB$                  | $$A\overline{B}$$ plus $A$               |
-| 1  | 1  | 1  | 1  | $A$                   | $A$                            |
-
-### Waveform
-The following image shows the waveform generated by the ALU:
-![ALU waveform](https://velog.velcdn.com/images/foodinsect/post/3d0e8323-fccd-4907-9b58-8eac8df04e7d/image.png)
-
-### RTL Schematic
-Here is the RTL schematic of the implemented ALU:
-![RTL Schematic](https://velog.velcdn.com/images/foodinsect/post/92ffbdc2-c18e-4e63-8ac1-18e6eb2697b2/image.png)
-

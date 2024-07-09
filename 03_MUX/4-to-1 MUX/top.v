@@ -8,7 +8,9 @@ module top(
     output out_operators,
     output out_structural, // Output from the structural mux
     output out_if_else,    // Output from the if-else mux
+    output out_modeling,   // Output from the modeling mux
     output out_nesting,    // Output from the nesting mux
+    output out_tristate_2,  // Output from the 2-to-1 tristate mux
     output out_tristate_4 // Output from the 4-to-1 tristate mux
 );
 
@@ -58,6 +60,14 @@ module top(
         .out(out_if_else)
     );
 
+    // Instantiate the modeling_2_to_1_mux
+    modeling_2_to_1_mux modeling_2_to_1_mux_instance(
+        .in0(i[0]),
+        .in1(i[1]),
+        .control(sel[0]),
+        .out(out_modeling)
+    );
+
     // Instantiate the nesting_4_to_1_mux
     nesting_4_to_1_mux nesting_4_to_1_mux_instance(
         .i0(i[0]),
@@ -68,7 +78,15 @@ module top(
         .s1(sel[1]),
         .out(out_nesting)
     );
-
+    
+    // Instantiate the tristate_2_to_1_mux
+    tristate_2_to_1_mux tristate_2_to_1_mux_instance(
+        .x(i[0]),
+        .y(i[1]),
+        .s(sel[0]),
+        .f(out_tristate_2)
+    );
+    
     // Instantiate the tristate_4_to_1_mux
     tristate_4_to_1_mux tristate_4_to_1_mux_instance(
         .in(i),

@@ -12,7 +12,7 @@ A Multiplexer (MUX) is a combinational circuit that selects one of many input si
 
 # 🚩 Folder Descriptions
 
-## [01_2-to-1 MUX](https://github.com/foodinsect/basic-module/tree/main/03_MUX/01_2-to-1%20MUX)
+## [01_2-to-1 MUX](./01_2-to-1%20MUX)
 
 This directory contains the design and implementation of a simple 2-to-1 multiplexer. This MUX has two data inputs, one selection line, and one output. The design includes:
 - **Basic MUX**: Using standard logic gates to perform the selection.
@@ -20,7 +20,7 @@ This directory contains the design and implementation of a simple 2-to-1 multipl
 
 ---
 
-## [02_4-to-1 MUX](https://github.com/foodinsect/basic-module/tree/main/03_MUX/02_4-to-1%20MUX)
+## [02_4-to-1 MUX](./02_4-to-1%20MUX)
 
 This directory contains the design of a 4-to-1 multiplexer using different modeling techniques and design strategies:
 - **Structural Modeling**: Building the MUX using basic logic gates and interconnections.
@@ -32,7 +32,7 @@ The directory showcases various design approaches to implement the 4-to-1 MUX, e
 
 ---
 
-## [03_N bit 4-to-1 MUX](https://github.com/foodinsect/basic-module/tree/main/03_MUX/03_N%20bit%204-to-1%20MUX)
+## [03_N bit 4-to-1 MUX](./03_N%20bit%204-to-1%20MUX)
 
 This directory contains the design of an N-bit 4-to-1 multiplexer using parameterized modules. The design leverages:
 - **Generate Statement**: To create scalable and reusable MUX designs for N-bit inputs.

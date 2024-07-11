@@ -16,7 +16,7 @@ The output is the result of the operation, which can be fed back into other part
 
 # 🚩Folder Descriptions
 
-## 01_Simple 4-bit ALU
+## [01_Simple 4-bit ALU](https://github.com/foodinsect/basic-module/tree/main/02_ALU/01_Simple%204-bit%20ALU)
 
 This directory contains the design and implementation of a simple 4-bit ALU.  
 This ALU is capable of performing basic arithmetic and logical operations on 4-bit binary numbers.  
@@ -24,7 +24,7 @@ The focus here is on understanding the fundamental operations of an ALU without 
 
 ---
 
-## 02_ALU_74181
+## [02_ALU_74181](https://github.com/foodinsect/basic-module/tree/main/02_ALU/02_ALU_74181)
 
 This directory contains the design of the 74181 ALU based on the **instructions** and mode-specific operations as detailed in the datasheet.  
 The 74181 is a historic and widely studied 4-bit ALU chip that was used in many early computers.  
@@ -32,7 +32,7 @@ The design replicates these functionalities, ensuring that it behaves identicall
 
 ---
 
-## 03_ALU_74181_comb
+## [03_ALU_74181_comb](https://github.com/foodinsect/basic-module/tree/main/02_ALU/03_ALU_74181_comb)
 
 This directory contains the design of the 74181 ALU using combinational logic circuits.   
 The structural modeling approach is employed here, where the ALU is constructed using basic logic gates to replicate the exact behavior of the 74181 ALU.  

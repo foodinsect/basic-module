@@ -7,7 +7,7 @@ An encoder is a digital circuit that converts a given input into a specific outp
 
 
 ## Simulation Waveform
-![Encoder Simulation Waveform](image.png)
+![Encoder Simulation Waveform](https://github.com/user-attachments/assets/0aacd71e-d756-4068-b3fe-a27d98158ec4)
 *Figure: Example of a encoder simulation waveform*
 
 ## Definition and Role

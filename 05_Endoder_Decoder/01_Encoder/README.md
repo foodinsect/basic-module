@@ -4,8 +4,6 @@
 
 An encoder is a digital circuit that converts a given input into a specific output code. It is primarily used to convert input signals into binary codes of smaller bit size. Encoders play a crucial role in various digital systems, including data transmission, data compression, error detection, and correction.
 
-
-
 ## Simulation Waveform
 ![Encoder Simulation Waveform](https://github.com/user-attachments/assets/0aacd71e-d756-4068-b3fe-a27d98158ec4)
 *Figure: Example of a encoder simulation waveform*
@@ -84,6 +82,26 @@ Encoders can be implemented using OR gates. For instance, a $2^n$-to-n encoder c
 
 - The 3-to-8 encoder has three inputs and eight outputs.
 - Each output corresponds to a unique 3-bit binary input combination.
+
+## RTL Schematic
+![encoder 4 to 2 if else](https://github.com/user-attachments/assets/6841b0a2-ca3d-4ff0-840d-ee293d5d22fc)  
+*Figure: RTL Schematic of encoder 4-to-2 using if else*  
+
+![encoder 4 to 2 case](https://github.com/user-attachments/assets/69ec7414-0fa7-4713-b792-88cdfd552227)  
+*Figure: RTL Schematic of encoder 4-to-2 using case*  
+
+![encoder 8 to 3](https://github.com/user-attachments/assets/2aedbc12-e683-4387-8144-166012d4c2a9)  
+*Figure: RTL Schematic of encoder 8-to-3*  
+
+![priority encoder 4 to 2 casex](https://github.com/user-attachments/assets/d7f64e18-0e6d-469e-8853-c75c825fdf24)  
+*Figure: RTL Schematic of Priority encoder 4-to-2 using casex*  
+
+![priority encoder 4 to 2 if else](https://github.com/user-attachments/assets/493336ff-4344-40a5-8ffb-66341a573c9b)
+*Figure: RTL Schematic of Priority encoder 4-to-2 using if else*  
+
+![priority encoder 8 to 3](https://github.com/user-attachments/assets/cc88511b-78bb-46d0-9bf8-b0803d10b130)  
+*Figure: RTL Schematic of Priority encoder 8-to-3*  
+
 
 ## Conclusion
 

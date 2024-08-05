@@ -5,7 +5,7 @@
 A decoder is a digital circuit that performs the reverse operation of an encoder. It takes an n-bit input and generates \( 2^n \) (or fewer) outputs. Decoders are widely used in various applications such as data demultiplexing, memory address decoding, and data distribution.
 
 ## Simulation Waveform
-![Decoder Simulation Waveform](image.png)
+![Decoder Simulation Waveform](https://github.com/user-attachments/assets/7d079def-609e-4210-ac5c-dcd5add4fe71)
 *Figure: Example of a decoder simulation waveform*
 
 ## Definition and Role
@@ -73,6 +73,16 @@ Combining two smaller decoders to create a larger decoder:
 - \( n_2 \)-to-\( 2^{n_2} \) Decoder
 - \( 2^{n_1} \times 2 \)-input AND gates
 - Combined to form a \((n_1 + n_2)\)-to-\( 2^{(n_1 + n_2)} \) Decoder
+
+## RTL Schematic
+![decoder 2 to 4 active high](https://github.com/user-attachments/assets/f7fdbf1c-b02b-4525-ac8f-cb1b78f327bc)
+*Figure: decoder 2 to 4 active high RTL Schematic*  
+![decoder 2 to 4 active low](https://github.com/user-attachments/assets/3c663259-1485-4531-821c-6f37695967f1)
+*Figure: decoder 2 to 4 active low RTL Schematic*  
+![decoder 3 to 8 active high](https://github.com/user-attachments/assets/d766ebbd-3f13-4302-ad82-71358136d6e2)
+*Figure: decoder 3 to 8 active high RTL Schematic*  
+![decoder 3 to 8 active low](https://github.com/user-attachments/assets/34a07130-a9eb-43dd-b80f-aa579fdc8aee)
+*Figure: decoder 2 to 4 active low RTL Schematic*  
 
 ## Conclusion
 
